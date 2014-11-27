@@ -1,3 +1,5 @@
-<h1>BIENVENIDOS A LA CLINICA </h1>
+<h1>BIENVENIDOS A LA CLINICA  </h1>
+<b>Esta conectado como <%= current_user.cuenta %>....   <%= link_to "Log out", logout_path, :method => :post %></b>
+<br></br>
 
  <%= link_to "registrar usuario", '/users/new', :method => :get %>
