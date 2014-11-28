@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  rangoMax: 1
+  rangoMin: 1
+
+two:
+  nombre: MyString
+  rangoMax: 1
+  rangoMin: 1

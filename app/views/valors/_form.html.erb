@@ -1,0 +1,29 @@
+<%= form_for(@valor) do |f| %>
+  <% if @valor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@valor.errors.count, "error") %> prohibited this valor from being saved:</h2>
+
+      <ul>
+      <% @valor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :rangoMax %><br>
+    <%= f.number_field :rangoMax %>
+  </div>
+  <div class="field">
+    <%= f.label :rangoMin %><br>
+    <%= f.number_field :rangoMin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

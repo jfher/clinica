@@ -1,0 +1,27 @@
+<h1>Listing analises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @analises.each do |analise| %>
+      <tr>
+        <td><%= analise.nombre %></td>
+        <td><%= link_to 'Show', analise %></td>
+        <td><%= link_to 'Edit', edit_analise_path(analise) %></td>
+        <td><%= link_to 'Destroy', analise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Analisis', new_analise_path %>

@@ -1,0 +1,31 @@
+<h1>Listing valors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Rangomax</th>
+      <th>Rangomin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valors.each do |valor| %>
+      <tr>
+        <td><%= valor.nombre %></td>
+        <td><%= valor.rangoMax %></td>
+        <td><%= valor.rangoMin %></td>
+        <td><%= link_to 'Show', valor %></td>
+        <td><%= link_to 'Edit', edit_valor_path(valor) %></td>
+        <td><%= link_to 'Destroy', valor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valor', new_valor_path %>

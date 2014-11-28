@@ -1,4 +1,8 @@
 Proy::Application.routes.draw do
+  resources :valors
+
+  resources :analises
+
   resources :users
   resources :sessions
 
@@ -11,6 +15,7 @@ Proy::Application.routes.draw do
    get 'login' => 'sessions#new'
    post 'login' => 'sessions#create'
    post 'logout' => 'sessions#destroy'
+   get 'resultadosAnalisis' => 'analises#resultadosAnalisis'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

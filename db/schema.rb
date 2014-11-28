@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124160057) do
+ActiveRecord::Schema.define(version: 20141128165721) do
+
+  create_table "analises", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "cuenta"
@@ -21,6 +27,18 @@ ActiveRecord::Schema.define(version: 20141124160057) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rol"
   end
+
+  create_table "valors", force: true do |t|
+    t.string   "nombre"
+    t.integer  "rangoMax"
+    t.integer  "rangoMin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "valor_id"
+  end
+
+  add_index "valors", ["valor_id"], name: "index_valors_on_valor_id"
 
 end

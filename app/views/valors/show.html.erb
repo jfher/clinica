@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @valor.nombre %>
+</p>
+
+<p>
+  <strong>Rangomax:</strong>
+  <%= @valor.rangoMax %>
+</p>
+
+<p>
+  <strong>Rangomin:</strong>
+  <%= @valor.rangoMin %>
+</p>
+
+<%= link_to 'Edit', edit_valor_path(@valor) %> |
+<%= link_to 'Back', valors_path %>
