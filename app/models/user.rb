@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	VALID_PASSWORD = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./i
-	before_create :usuario_default
-	before_save :inizilizar_secretaria
+	#before_create :usuario_default
+	#before_save :inizilizar_secretaria
 	attr_accessible :password,:cuenta,:nombre,:password_confirmation
 	validates :cuenta, presence: true, uniqueness: {case_sensitive: false}
 	validates :nombre, presence: true, length: { minimum: 10}

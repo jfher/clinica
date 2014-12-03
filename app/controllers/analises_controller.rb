@@ -4,7 +4,11 @@ class AnalisesController < ApplicationController
   # GET /analises
   # GET /analises.json
   def index
+    if current_user != NIL
     @analises = Analisis.all
+  else
+    redirect_to '/'
+  end
   end
 
   # GET /analises/1
@@ -13,7 +17,11 @@ class AnalisesController < ApplicationController
   end
 
    def resultadosAnalisis
-  
+   if current_user != NIL
+   @analises = Analisis.all
+   else
+    redirect_to '/'
+   end
   end
   # GET /analises/new
   def new

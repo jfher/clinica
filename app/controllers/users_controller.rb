@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
   # GET /users
   # GET /users.json
   def index
@@ -16,8 +15,12 @@ class UsersController < ApplicationController
   
   # GET /users/new
   def new
+    if current_user!=NIL
     @user = User.new
+  else
+    redirect_to '/'
   end
+end
 
   # GET /users/1/edit
   def edit
@@ -71,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:cuenta, :nombre, :password, :password_confirmation, :password_digest)
+      params.require(:user).permit(:cuenta, :nombre, :password, :password_confirmation, :password_digest, :rol)
     end
 end
