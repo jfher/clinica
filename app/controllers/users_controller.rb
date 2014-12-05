@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
+
+  def welcome
+  if current_user==NIL
+    redirect_to '/'
+  end
+  end
+
   def index
     if current_user!=NIL
     @users = User.all
