@@ -4,7 +4,9 @@ class ValorsController < ApplicationController
   # GET /valors
   # GET /valors.json
   def index
+
     @valors = Valor.all
+    
   end
 
   # GET /valors/1

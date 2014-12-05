@@ -3,12 +3,24 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    if current_user!=NIL
     @users = User.all
+  else
+    redirect_to '/'
+  end
+
+    
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if current_user!=NIL
+    
+  else
+    redirect_to '/'
+  end
+
   end
 
   
@@ -24,11 +36,17 @@ end
 
   # GET /users/1/edit
   def edit
+    if current_user!=NIL
+  
+  else
+    redirect_to '/'
+  end
   end
 
   # POST /users
   # POST /users.json
   def create
+    if current_user!=NIL
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -40,6 +58,9 @@ end
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+      else
+    redirect_to '/'
+  end
   end
 
   # PATCH/PUT /users/1
@@ -59,11 +80,15 @@ end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    if current_user!=NIL
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+      else
+    redirect_to '/'
+  end
   end
 
   private
