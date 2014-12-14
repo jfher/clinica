@@ -5,7 +5,7 @@ class AnalisesController < ApplicationController
   # GET /analises.json
   def index
     if current_user != NIL
-    @analises = Analisis.all
+    @analise = Analisis.all
   else
     redirect_to '/'
   end
@@ -18,7 +18,7 @@ class AnalisesController < ApplicationController
 
    def resultadosAnalisis
    if current_user != NIL
-   @analises = Analisis.all
+   @analise = Analisis.all
    else
     redirect_to '/'
    end
@@ -80,6 +80,6 @@ class AnalisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def analise_params
-      params.require(:analise).permit(:nombre)
+      params.require(:analisis).permit(:nombre)
     end
 end

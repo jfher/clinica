@@ -4,9 +4,10 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def welcome
-  if current_user==NIL
-    redirect_to '/'
-  end
+     if current_user == NIL
+      redirect_to '/'
+    end
+    @user=current_user
   end
 
   def index
@@ -55,7 +56,11 @@ end
   def create
     if current_user!=NIL
     @user = User.new(user_params)
-
+    if @user.id == 1
+      @user.rol="secretaria"
+    else
+      @user.rol="paciente"
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
