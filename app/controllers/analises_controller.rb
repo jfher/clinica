@@ -6,6 +6,7 @@ class AnalisesController < ApplicationController
   def index
     if current_user != NIL
     @analise = Analisis.all
+    @values = Valor.all
   else
     redirect_to '/'
   end

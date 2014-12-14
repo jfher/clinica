@@ -23,6 +23,10 @@
     <%= f.label :rangoMin %><br>
     <%= f.number_field :rangoMin %>
   </div>
+  <div class="field">
+    <%= f.label :'Seleccione el nombre del Analisis' %><br>
+    <%= f.collection_select(:analise_id, Analisis.all(), :id, :nombre, {:required => "required"}, :class => "textboxgrade" ) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

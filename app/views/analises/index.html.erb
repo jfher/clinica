@@ -1,19 +1,25 @@
 <h1>Listing analises</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Analisis</th>
+      <th>Valor</th>
+      <th>Rango Max</th>
+      <th>Rango Min</th>
     </tr>
   </thead>
-
   <tbody>
     <% @analise.each do |analise| %>
       <tr>
         <td><%= analise.nombre %></td>
+        <% @values.each do |values| %>
+        <% if values.analise_id == analise.id %>
+        <td><%= values.nombre %></td>
+        <td><%= values.rangoMax %></td>
+        <td><%= values.rangoMin %></td>
+        <%end%>
+        <%end%>
+        <br>
         <td><%= link_to 'Show', analise %></td>
         <td><%= link_to 'Edit', edit_analise_path(analise) %></td>
         <td><%= link_to 'Destroy', analise, method: :delete, data: { confirm: 'Are you sure?' } %></td>

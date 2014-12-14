@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214201500) do
+ActiveRecord::Schema.define(version: 20141214222303) do
 
   create_table "analises", force: true do |t|
     t.string   "nombre"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20141214201500) do
     t.integer  "rangoMin"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "valor_id"
+    t.integer  "analise_id"
   end
 
-  add_index "valors", ["valor_id"], name: "index_valors_on_valor_id"
+  add_index "valors", ["analise_id"], name: "index_valors_on_analise_id"
 
 end

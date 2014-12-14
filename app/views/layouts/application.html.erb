@@ -2,11 +2,11 @@
 <html>
 <head>
 <%if current_user!= nil%>
-<h align="right"> <b>Esta conectado como <%= current_user.cuenta %>....   <%= link_to "Log out", logout_path, :method => :post %></h>
-<br></br>
+<h align="left"> <b>Esta conectado como <%= current_user.cuenta %>....   <%= link_to "Log out", logout_path, :method => :post %></h>
+<h2><%= link_to "Home", '/welcome', :method => :get %></h2>
 <%end%>
 </h1>
-  <title>Clinica</title>
+  <title>Clinica "San Pedro"</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
