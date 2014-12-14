@@ -18,7 +18,7 @@ class AnalisesController < ApplicationController
 
    def resultadosAnalisis
    if current_user != NIL
-   @analise = Analisis.all
+    @analise = Analisis.all
    else
     redirect_to '/'
    end

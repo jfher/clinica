@@ -4,10 +4,18 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def welcome
-     if current_user == NIL
-      redirect_to '/'
-    end
-    @user=current_user
+    if current_user != NIL 
+      if current_user.control == true
+
+      else
+      
+      redirect_to '/change'
+     end
+   else
+    redirect_to '/'
+  end
+  @user=current_user
+     
   end
 
   def index
@@ -56,11 +64,8 @@ end
   def create
     if current_user!=NIL
     @user = User.new(user_params)
-    if @user.id == 1
-      @user.rol="secretaria"
-    else
-      @user.rol="paciente"
-    end
+    @user.rol = "paciente"
+    @user.control= "false"
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -80,6 +85,12 @@ end
   def update
     respond_to do |format|
       if @user.update(user_params)
+        if @user.rol == "paciente"
+           @user.control = "true"
+           @user.save
+           format.html { redirect_to '/welcome', notice: 'User was successfully updated.' }
+           format.json { head :no_content }
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -111,6 +122,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:cuenta, :nombre, :password, :password_confirmation, :password_digest, :rol)
+      params.require(:user).permit(:cuenta, :nombre, :password, :password_confirmation, :password_digest, :rol, :control)
     end
 end

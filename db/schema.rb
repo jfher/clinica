@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128165721) do
+ActiveRecord::Schema.define(version: 20141214201500) do
 
   create_table "analises", force: true do |t|
     t.string   "nombre"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141128165721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "rol"
+    t.boolean  "control"
   end
 
   create_table "valors", force: true do |t|

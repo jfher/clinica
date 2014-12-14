@@ -16,6 +16,7 @@ Proy::Application.routes.draw do
    post 'login' => 'sessions#create'
    post 'logout' => 'sessions#destroy'
    get 'resultadosAnalisis' => 'analises#resultadosAnalisis'
+   get 'change' => 'users#change'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
