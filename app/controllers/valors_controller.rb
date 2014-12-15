@@ -71,6 +71,6 @@ class ValorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def valor_params
-      params.require(:valor).permit(:nombre, :rangoMax, :rangoMin, :analise_id)
+      params.require(:valor).permit(:nombre, :rangoMax, :rangoMin, :analise_id, :value)
     end
 end

@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214222303) do
+ActiveRecord::Schema.define(version: 20141215182454) do
 
   create_table "analises", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "analises", ["user_id"], name: "index_analises_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "cuenta"
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141214222303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "analise_id"
+    t.integer  "value"
   end
 
   add_index "valors", ["analise_id"], name: "index_valors_on_analise_id"

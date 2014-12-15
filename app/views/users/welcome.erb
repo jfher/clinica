@@ -17,6 +17,35 @@
  <br>
 <% else %>
 <h2>Analisis Realizados</h2>
-
-
+<table>
+  <thead>
+    <tr>
+      <th>Analisis</th>
+      <th>Nombre del Valor</th>
+      <th>Rango Max</th>
+      <th>Rango Min</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @analisis.each do |analise| %>
+      <tr>
+     <% if @user.id == analise.user_id %>
+        <td><%= analise.nombre %></td>
+        <% @values.each do |values| %>
+        <% if values.analise_id == analise.id %>
+        <td><%= values.nombre %></td>
+        <td><%= values.rangoMax %></td>
+        <td><%= values.rangoMin %></td>
+        <td><%= values.value %></td>
+        </tr>
+        <th></th>
+        <%end%>
+        <%end%>
+        <%end%>
 <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

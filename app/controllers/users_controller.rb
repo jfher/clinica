@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
   @user=current_user
-     
+  @analisis=Analisis.all
+  @values=Valor.all
   end
 
   def index

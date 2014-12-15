@@ -2,6 +2,7 @@
 <table>
   <thead>
     <tr>
+      <th>Paciente</th>
       <th>Analisis</th>
       <th>Valor</th>
       <th>Rango Max</th>
@@ -11,15 +12,19 @@
   <tbody>
     <% @analise.each do |analise| %>
       <tr>
+         <td><%= analise.user_id %></td>
         <td><%= analise.nombre %></td>
         <% @values.each do |values| %>
         <% if values.analise_id == analise.id %>
         <td><%= values.nombre %></td>
         <td><%= values.rangoMax %></td>
         <td><%= values.rangoMin %></td>
+        </tr>
+        <th></th>
+        <th></th>
         <%end%>
         <%end%>
-        <br>
+        <tr>
         <td><%= link_to 'Show', analise %></td>
         <td><%= link_to 'Edit', edit_analise_path(analise) %></td>
         <td><%= link_to 'Destroy', analise, method: :delete, data: { confirm: 'Are you sure?' } %></td>

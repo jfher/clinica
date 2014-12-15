@@ -15,6 +15,10 @@
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
+    <div class="field">
+    <%= f.label :'Seleccione el nombre del paciente' %><br>
+    <%= f.collection_select(:user_id, User.all(), :id, :nombre, {:required => "required"}, :class => "textboxgrade" ) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
