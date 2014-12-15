@@ -5,8 +5,12 @@ class AnalisesController < ApplicationController
   # GET /analises.json
   def index
     if current_user != NIL
-    @analise = Analisis.all
-    @values = Valor.all
+      if current_user.rol == "bioquimica"
+      @analise = Analisis.all
+      @values = Valor.all
+     else 
+      redirect_to '/'
+       end
   else
     redirect_to '/'
   end
@@ -15,6 +19,9 @@ class AnalisesController < ApplicationController
   # GET /analises/1
   # GET /analises/1.json
   def show
+     if current_user.rol != "bioquimica"
+      redirect_to '/'
+    end
   end
 
    def resultadosAnalisis
@@ -26,11 +33,18 @@ class AnalisesController < ApplicationController
   end
   # GET /analises/new
   def new
+    if current_user.rol == "bioquimica"
     @analise = Analisis.new
+  else
+    redirect_to '/'
+    end
   end
 
   # GET /analises/1/edit
   def edit
+    if current_user.rol != "bioquimica"
+      redirect_to '/'
+    end
   end
 
   # POST /analises

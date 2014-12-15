@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    if current_user!=NIL
+    if current_user.rol == "secretaria"
     @users = User.all
   else
     redirect_to '/'
@@ -32,19 +32,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if current_user!=NIL
-    
-  else
+    if current_user.rol!="secretaria"
     redirect_to '/'
-  end
-
+     end
   end
 
   
   
   # GET /users/new
   def new
-    if current_user!=NIL
+    if current_user.rol=="secretaria"
     @user = User.new
   else
     redirect_to '/'
@@ -53,9 +50,7 @@ end
 
   # GET /users/1/edit
   def edit
-    if current_user!=NIL
-  
-  else
+    if current_user.rol=="secretaria"
     redirect_to '/'
   end
   end

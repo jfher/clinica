@@ -4,23 +4,35 @@ class ValorsController < ApplicationController
   # GET /valors
   # GET /valors.json
   def index
-
+    if current_user.rol == "bioquimica"
     @valors = Valor.all
-    
+  else
+    redirect_to '/'
+  end
   end
 
   # GET /valors/1
   # GET /valors/1.json
   def show
+    if current_user.rol != "bioquimica"
+      redirect_to '/'
+    end
   end
 
   # GET /valors/new
   def new
+    if current_user.rol == "bioquimica"
     @valor = Valor.new
+  else
+    redirect_to '/'
+  end
   end
 
   # GET /valors/1/edit
   def edit
+    if current_user.rol != "bioquimica"
+      redirect_to '/'
+    end
   end
 
   # POST /valors
