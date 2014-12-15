@@ -1,21 +1,27 @@
 <h1>Bienvenido a la Clinica "San Andres"  </h1>
 <br>
-<% if @user.id == 1 %>
+<% if @user.rol == "bioquimica" %>
 <h2>Registros</h2>
- <%= link_to "Registrar Usuario", '/users/new', :method => :get %>
- <br>
  <%= link_to "Registrar Analisis", '/analises/new', :method => :get %>
  <br>
  <%= link_to "Registrar Valores", '/valors/new', :method => :get %>
  <br>
 <h2>Listados</h2>
-<%= link_to "Listado de Usuarios", '/users', :method => :get %>
- <br>
  <%= link_to "Listado de  Analisis", '/analises', :method => :get %>
  <br>
  <%= link_to "Listado de Valores", '/valors', :method => :get %>
  <br>
-<% else %>
+<%end%>
+
+<% if @user.rol == "secretaria" %>
+<h2>Registros</h2>
+ <%= link_to "Registrar Usuario", '/users/new', :method => :get %>
+ <br>
+<h2>Listados</h2>
+<%= link_to "Listado de Usuarios", '/users', :method => :get %>
+<%end%>
+
+<% if @user.rol == "paciente" %>
 <h2>Analisis Realizados</h2>
 <table>
   <thead>
@@ -47,5 +53,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
